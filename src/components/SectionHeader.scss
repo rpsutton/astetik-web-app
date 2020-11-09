@@ -1,0 +1,35 @@
+.SectionHeader {
+  // Add bottom margin if element below
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__subtitle {
+    // Subtitle text generally isn't very long
+    // so usually looks better to limit width.
+    max-width: 700px;
+    // So we can have max-width but still
+    // have alignment controlled by text-align.
+    display: inline-block;
+  }
+
+  @media (min-width: 400px) {  
+    .display-3 {font-size:3rem;} /*1rem = 16px*/
+  }
+   
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) {  
+    .display-3 {font-size:3.5rem;} /*1rem = 16px*/
+  }
+
+  @media (min-width: 992px) { 
+    .display-3 {font-size:4rem;} /*1rem = 16px*/
+  }
+   
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {  
+    .display-3 {font-size:4.5rem;} /*1rem = 16px*/    
+  }
+}
+
+
