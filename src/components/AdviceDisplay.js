@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Container from "react-bootstrap/Container";
 import SectionHeader from "./SectionHeader";
 import Button from "react-bootstrap/Button";
@@ -7,6 +7,18 @@ import {backgrounds} from "../styles/backgrounds";
 import Spinner from "react-bootstrap/Spinner";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import CustomModal from "./CustomModal";
+
+const API_URL = "https://api.adviceslip.com/advice";
+
+function get(url) {
+  return fetch(url)
+  .then(resp => resp.json())
+}
+const API = { get }
+
+function generateRandomNumber(num) {
+  return Math.floor(Math.random() * Math.floor(num));
+}
 
 function HeroSection(props) {   
 
@@ -18,19 +30,7 @@ function HeroSection(props) {
   const [countdown, setCountdown] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-    const API_URL = "https://api.adviceslip.com/advice";
-
-    function get(url) {
-      return fetch(url)
-      .then(resp => resp.json())
-    }
-    const API = { get }
-
-    function generateRandomNumber(num) {
-      return Math.floor(Math.random() * Math.floor(num));
-    }
-
-    function getQuotes() {
+    const getQuotes = useCallback(() => { 
       API.get(API_URL)
         .then(data => {
         setData(data.slip.advice);
@@ -40,7 +40,7 @@ function HeroSection(props) {
           setCountdown(true);
         })
         .catch(error => console.log(error));
-    }
+     }, [])
 
     function searchQuote(keyword) {
       API.get(API_URL+"/search/"+keyword)
@@ -74,7 +74,7 @@ function HeroSection(props) {
     
     useEffect(() => {
         getQuotes();
-    }, [])
+    }, [getQuotes])
 
     const handlekeywordchange = (ev) => {
       if(showAlert) {

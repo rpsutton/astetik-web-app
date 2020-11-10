@@ -2,10 +2,8 @@ import React from "react";
 import AdviceDisplay from "./../components/AdviceDisplay";
 import NewsletterSection from "./../components/NewsletterSection";
 import Footer from "./../components/Footer";
-import { useRouter } from "./../util/router.js";
 
 function IndexPage(props) {
-  const router = useRouter();
   var dateObject = new Date();
   var curentYear = dateObject.getFullYear();
   return (
