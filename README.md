@@ -1,5 +1,6 @@
 # astetik
-Live site: https://www.linkedin.com/in/rps3/
+Live site: https://astetik.netlify.app/
+
 Randomly generate advice presented in modern aesthetic styling! Do note that some of the advice will be nonsense for the time being because astetik utilizes a free advice api. I am currently working on compiling my own set of advice.
 ## 👉 Get Started
 Install dependencies
