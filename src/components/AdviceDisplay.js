@@ -117,7 +117,7 @@ function HeroSection(props) {
                   setIsLoaded={setIsLoaded}
                 />
                 <section className="d-flex flex-row justify-content-center align-content-center">
-                  {countdown && (
+                {countdown && (
                     <CountdownCircleTimer
                     isPlaying
                     duration={5}
@@ -140,6 +140,7 @@ function HeroSection(props) {
                   setIsLoaded(false);
                 }}
                 >
+                  
                   Generate new advice
                 </Button>
                 <h5 className="mt-2 ml-2 mr-2">or</h5>

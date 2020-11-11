@@ -10,7 +10,7 @@ export default function FormComponent(props) {
     const setIsLoaded = props.setIsLoaded;
 
     return (
-      <Form inline>
+      <Form>
       <FormControl 
       type="text" 
       placeholder="Search" 
@@ -19,7 +19,10 @@ export default function FormComponent(props) {
       name="keyword" 
       onChange={handlekeywordchange}
       />
-      <Button variant="outline-primary"
+      <Button 
+      variant="outline-primary" 
+      className="mt-3"
+      block
         onClick={() => {
           setIsLoaded(false);
           searchQuote(keyword);
