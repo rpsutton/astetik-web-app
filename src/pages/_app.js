@@ -10,7 +10,6 @@ function App(props) {
     <Router>
       <Switch>
         <Route exact path="/" component={IndexPage} />
-
         <Route component={NotFoundPage} />
       </Switch>
     </Router>
